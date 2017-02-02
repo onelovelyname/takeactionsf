@@ -1,0 +1,38 @@
+{
+  "name": "takeactionsf",
+  "version": "1.0.0",
+  "description": "Open source project to share information about upcoming protests, meetings, and political events of interest.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onelovelyname/takeactionsf.git"
+  },
+  "keywords": [
+    "political",
+    "action",
+    "activism",
+    "engagement"
+  ],
+  "author": "Melanie Gin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onelovelyname/takeactionsf/issues"
+  },
+  "homepage": "https://github.com/onelovelyname/takeactionsf#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.16.0",
+    "bookshelf": "^0.10.3",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.1",
+    "fb": "^1.1.1",
+    "jquery": "^3.1.1",
+    "knex": "^0.12.6",
+    "mustache": "^2.3.0",
+    "nodemon": "^1.11.0",
+    "registry": "^0.3.0"
+  }
+}
