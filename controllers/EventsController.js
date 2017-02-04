@@ -6,13 +6,14 @@ var moment = require('moment');
 var EventsController = {
 
   formatDate: function(date) {
-      return (moment(date, 'MM/DD/YYYY')).format('YYYY-MM-DD');
+      console.log("date in formatDate: " + date);
+      return (moment(date, 'MM-DD-YYYY')).format('YYYY-MM-DD');
   },
 
   createEvent: function(event) {
 
-      var formatted_date = this.formatDate(event.date);
-
+      //var formatted_date = this.formatDate(event.date);
+      //console.log("formatted date: " + formatted_date);
       return new Promise(function(resolve, reject){
 
       new Event({ 'title': event.title })
@@ -20,7 +21,7 @@ var EventsController = {
         if (!found) {
           new Event({
             title: event.title,
-            date: formatted_date,
+            date: event.date,
             start_time: event.start_time,
             end_time: event.end_time,
             location: event.location,
@@ -31,28 +32,10 @@ var EventsController = {
             console.log("event saved!");
             resolve(event);
           })
+        } else {
+          reject("There's already have an event with this name!");
         }
       });
-      //     console.log("event not found");
-      //     new Event({
-      //       title: event.title,
-      //       date: event.date,
-      //       start_time: event.start_time,
-      //       end_time: event.end_time,
-      //       location: event.location,
-      //       type: event.type,
-      //       cause: event.cause,
-      //       description: event.description
-      //     }).save({}, {method: 'insert'})
-      //         .then(function(event) {
-      //           console.log("Event saved!", event);
-      //           resolve(event);
-      //         })
-      //         .catch(function(error) {
-      //           reject({ 'Error saving new event to database 1': error });
-      //         });
-        //}
-      //})
     });
   },
   

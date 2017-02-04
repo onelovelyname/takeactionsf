@@ -27,8 +27,11 @@ app.get("/", function(req, res) {
 //app.get("/events/:event_id", EventsController.getFacebookEvents);
 app.post("/events/add", function(req, res) {
   var event = req.body;
+  console.log("call to post");
   EventsController.createEvent(event).then(function(event){
     res.send(event);
+  }).catch(function(error) {
+    res.send(error);
   });
 });
 

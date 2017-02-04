@@ -18,17 +18,6 @@ $( ".event-form" ).submit(function( event ) {
             data[key] = (inputs[key]).val();
         }
     }
-    console.dir("data from handler: " + JSON.stringify(data));
-    $.post( "/events/add", JSON.stringify(data), function(event) {
-        console.log(JSON.stringify(event));
-        $( ".response-content" ).html(event);
-
-        // for (var key in inputs) {
-        //     if (inputs.hasOwnProperty(key)) {
-        //         inputs[key].val("");
-        //     }
-        // }
-    });
 
     $.ajax({
         type: 'post',
@@ -37,6 +26,12 @@ $( ".event-form" ).submit(function( event ) {
         success: function (data) {
             console.log('Success');
             console.log(data);
+
+            for (var key in inputs) {
+                if (inputs.hasOwnProperty(key)) {
+                    inputs[key].val("");
+                }
+            }
         },
         error: function () {
             console.log('We are sorry but our servers are having an issue right now');
