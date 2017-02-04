@@ -25,6 +25,11 @@ app.get("/", function(req, res) {
 });
 
 //app.get("/events/:event_id", EventsController.getFacebookEvents);
-app.post("/events/add", EventsController.createEvent);
+app.post("/events/add", function(req, res) {
+  var event = req.body;
+  EventsController.createEvent(event).then(function(event){
+    res.send(event);
+  });
+});
 
 var db = require("./db.js");

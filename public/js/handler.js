@@ -19,16 +19,16 @@ $( ".event-form" ).submit(function( event ) {
         }
     }
     console.dir("data from handler: " + JSON.stringify(data));
-    // $.post( "/events/add", JSON.stringify(data), function(event) {
-    //     console.log(JSON.stringify(event));
-    //     $( ".response-content" ).html(event);
-    //
-    //     // for (var key in inputs) {
-    //     //     if (inputs.hasOwnProperty(key)) {
-    //     //         inputs[key].val("");
-    //     //     }
-    //     // }
-    // });
+    $.post( "/events/add", JSON.stringify(data), function(event) {
+        console.log(JSON.stringify(event));
+        $( ".response-content" ).html(event);
+
+        // for (var key in inputs) {
+        //     if (inputs.hasOwnProperty(key)) {
+        //         inputs[key].val("");
+        //     }
+        // }
+    });
 
     $.ajax({
         type: 'post',
